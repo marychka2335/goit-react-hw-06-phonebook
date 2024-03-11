@@ -1,21 +1,24 @@
 .formContact {
   width: 600px;
-  margin: 15px 15px 0;
+  margin: 15px 15px 0 15px;
   text-align: left;
 }
 
 .labelContact {
-  margin-right: 30px;
+  margin: 5px 15px 5px 15px;
+  /* padding: 5px 5px 20px 15px; */
 }
 
 .inputContact {
-  margin-left: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
   padding: 5px 5px;
+
 }
 
 .button {
   display: block;
-  margin: 20px 53px 20px;
+  margin: 20px 95px 20px;
   padding: 5px 15px;
   cursor: pointer;
   color: #fff;

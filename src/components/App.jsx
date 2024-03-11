@@ -1,6 +1,3 @@
-// import { useState, useEffect } from 'react';
-// import iziToast from 'izitoast';
-// import 'izitoast/dist/css/iziToast.min.css';
 import css from './App.module.css';
 import { PhonebookForm } from './PhonebookForm/PhonebookForm';
 import { ContactsList } from './ContactsList/ContactsList';
@@ -13,9 +10,11 @@ export function App() {
         <h1 className={css.titleForm}>Phonebook</h1>
         <PhonebookForm />
       </div>
-      <h2 className={css.titleContacts}>Contacts</h2>
-      <Filter />
-      <ContactsList />
+      <div className={css.wrapperbook}>
+        <h2 className={css.titleContacts}>Contacts</h2>
+        <Filter />
+        <ContactsList />
+      </div>
     </div>
   );
 }

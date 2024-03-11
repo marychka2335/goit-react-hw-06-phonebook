@@ -37,6 +37,20 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: left;
-  width: 500px;
+  width: 700px;
   margin: 0;
+  background-color: lightblue;
+  box-shadow: 3px 3px lightgrey, -1em 0 .4em;
+  padding-bottom: 30px;
+}
+
+.wrapperbook {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 700px;
+  margin: 0;
+  background-color: lightcyan;
+  box-shadow: 3px 3px grey, -1em 0 .4em;
+  padding-bottom: 30px;
 }
