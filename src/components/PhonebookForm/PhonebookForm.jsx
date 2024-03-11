@@ -1,19 +1,27 @@
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
-import PropTypes from 'prop-types';
+import Notiflix from 'notiflix';
+// import { nanoid } from 'nanoid';
+// import PropTypes from 'prop-types';
 import css from './PhonebookForm.module.css';
+import { addContact } from './../../redux/slices/contactsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { getContacts } from './../../redux/selectors';
 
-export function PhonebookForm({ addContact }) {
+export function PhonebookForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    const isContactExists = addContact({ id: nanoid(6), name, number });
-    if (!isContactExists) {
-      setName('');
-      setNumber('');
+    if (contacts.some(item => item.name === name)) {
+      Notiflix.Notify.failure(`${name} is already in contacts`);
+      return;
     }
+    dispatch(addContact({ name, number }));
+    setName('');
+    setNumber('');
   };
 
   const handleChange = evt => {
@@ -64,7 +72,3 @@ export function PhonebookForm({ addContact }) {
     </form>
   );
 }
-
-PhonebookForm.propTypes = {
-  addContact: PropTypes.func.isRequired,
-};
