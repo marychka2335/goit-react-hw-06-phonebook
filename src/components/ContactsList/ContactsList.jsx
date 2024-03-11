@@ -11,6 +11,7 @@ export function ContactsList() {
     <>
       <ul className={css.contacts}>
         {filteredContacts.map(contact => {
+          // contactItem.split(/\s+/).map(word[0].toUpperCase() + word.substring(1).join(' '));
           return (
             <li className={css.contactItem} key={contact.id}>
               <div>
@@ -28,6 +29,9 @@ export function ContactsList() {
           );
         })}
       </ul>
+      <p className={css.totalContacts} key={ContactsList.length}>
+        Total contacts {filteredContacts.length}
+      </p>
     </>
   );
 }

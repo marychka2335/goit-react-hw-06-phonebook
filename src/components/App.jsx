@@ -5,7 +5,7 @@ import { Filter } from './Filter/Filter';
 
 export function App() {
   return (
-    <div>
+    <div className={css.wrappercover}>
       <div className={css.wrapper}>
         <h1 className={css.titleForm}>Phonebook</h1>
         <PhonebookForm />
