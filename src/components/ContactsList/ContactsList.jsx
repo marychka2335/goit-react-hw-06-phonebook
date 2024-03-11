@@ -2,6 +2,8 @@ import css from './ContactsList.module.css';
 import { deleteContact } from './../../redux/slices/contactsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilteredContacts } from './../../redux/selectors';
+import { Confirm } from 'notiflix/build/notiflix-confirm-aio';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export function ContactsList() {
   const filteredContacts = useSelector(getFilteredContacts);
@@ -21,7 +23,25 @@ export function ContactsList() {
 
               <button
                 className={css.buttonDelete}
-                onClick={() => dispatch(deleteContact(contact.id))}
+                onClick={contactId => {
+                  Confirm.show(
+                    'Delete contact',
+                    'Are you sure you want to delete this contact?',
+                    'Yes',
+                    'No',
+                    () => {
+                      dispatch(deleteContact(contactId));
+                      Notify.failure(`Contact deleted`);
+                    },
+                    () => {
+                      return;
+                    },
+                    {
+                      titleColor: '#4f46e5',
+                      okButtonBackground: '#4f46e5',
+                    }
+                  );
+                }}
               >
                 Delete
               </button>
