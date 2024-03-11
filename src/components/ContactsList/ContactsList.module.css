@@ -16,7 +16,7 @@
 .contactItem:hover,
 .contactItem:focus,
 .contactItem:active {
-  color: rgb(99, 99, 218);
+  color: #009aff;
   transform: scale(120%);
 }
 
